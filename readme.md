@@ -194,7 +194,7 @@ As of now, there are three things which you should be aware of.
 
 	For exmaple, in my Nginx config, I had to add 
 
-		error_page 404 /map;
+		error_page 404 /404;
 
 	to the server.
 
