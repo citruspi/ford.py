@@ -12,7 +12,7 @@
     {% endfor %}
     </ul>
     
-    {% if post_blog is defined %}
+    {% if config['post_blog'] is defined %}
     {{ config['post_blog']|markdown|safe }}
     {% endif %}
     
