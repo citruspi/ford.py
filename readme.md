@@ -33,12 +33,6 @@ So, you're interested in using `ford.py`, huh? Well, let's get started!
 
 Here are a few steps to get you on the way:
 
-0. Make a directory for it:
-
-		$ cd ~
-		$ mkdir blog
-		$ cd blog
-
 1. Clone the project:
 
 	Github:
@@ -51,7 +45,7 @@ Here are a few steps to get you on the way:
 
 2. Install requirements/dependencies:
 
-		$ cd blog
+		$ cd ford.py
 		$ pip install -r requirements.txt
 
 3. Take her for a spin:
