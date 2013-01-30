@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>ford.py by citruspi</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>ford.py</h1>
+        <p>(Yet Another) Static Blog Generator in Python</p>
+
+        <p class="view"><a href="https://github.com/citruspi/ford.py">View the Project on GitHub <small>citruspi/ford.py</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/citruspi/ford.py/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/citruspi/ford.py/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/citruspi/ford.py">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>Introduction</h3>
+
+<p><code>ford.py</code> is based on the principle that we shouldn't</p>
+
+<blockquote>
+<p>reinvent the wheel.</p>
+</blockquote>
+
+<p>So, it makes use of existing code libraries, in this case <code>flask</code> and flask extensions, to both serve and build static versions of websites while maintaining a small footprint.</p>
+
+<p><em>Note: As of this moment, ford.py only works with "posts", not "pages." So really, it's limited to blogs.</em></p>
+
+<h3>For Zeus' sake, WHY ANOTHER STATIC SITE GENERATOR?</h3>
+
+<p>For a few reasons actually. Compared to other solutions, <code>ford.py</code> is tiny. The project folder (including the default theme) is ~164 KB. <code>ford.py</code> itself is 8 KB. And, that's not 8 KB of pure code. As per <code>pylint</code>:</p>
+
+<h5>Raw Metrics of ford.py</h5>
+
+<table>
+<tr>
+<th align="left">type</th>
+<th align="left">number</th>
+<th align="left">%</th>
+</tr>
+<tr>
+<td align="left">code</td>
+<td align="left">69</td>
+<td align="left">48.59</td>
+</tr>
+<tr>
+<td align="left">docstring</td>
+<td align="left">54</td>
+<td align="left">38.03</td>
+</tr>
+<tr>
+<td align="left">comment</td>
+<td align="left">5</td>
+<td align="left">3.52</td>
+</tr>
+<tr>
+<td align="left">empty</td>
+<td align="left">14</td>
+<td align="left">9.86</td>
+</tr>
+</table><p>So, less than 4 KB of code. That's pretty small for a static site generator. </p>
+
+<p>In addition, it uses popular packages and modules, so the code is <em>familiar</em>. For that reason, its easily extendable. But, more on that later.</p>
+
+<h3>Quickstart</h3>
+
+<p>So, you're interested in using <code>ford.py</code>, huh? Well, let's get started!</p>
+
+<p>Here are a few steps to get you on the way:</p>
+
+<ol>
+<li>
+<p>Make a directory for it:</p>
+
+<pre><code>$ cd ~
+$ mkdir blog
+$ cd blog
+</code></pre>
+</li>
+<li>
+<p>Clone the project:</p>
+
+<p>Github:</p>
+
+<pre><code>$ git clone http://github.com/citruspi/ford.py.git
+</code></pre>
+
+<p>Bitbucket:</p>
+
+<pre><code>$ git clone http://bitbucket.org/citruspi/ford.py.git
+</code></pre>
+</li>
+<li>
+<p>Install requirements/dependencies:</p>
+
+<pre><code>$ cd blog
+$ pip install -r requirements.txt
+</code></pre>
+</li>
+<li>
+<p>Take her for a spin:</p>
+
+<pre><code>$ python ford.py serve
+</code></pre>
+</li>
+</ol><p>Now, if you open <code>127.0.0.1:8000</code> in your browser, you should be greated with something like:</p>
+
+<p><img src="http://i.imgur.com/uiMBP8r.png" alt=""></p>
+
+<p>If that's what you have, you're golden.</p>
+
+<h3>Options</h3>
+
+<p>There are two ways to use <code>ford.py</code>:</p>
+
+<pre><code>$ python ford.py serve
+</code></pre>
+
+<p>- or -</p>
+
+<pre><code>$ python ford.py build
+</code></pre>
+
+<p><code>Serve</code> will serve the blog locally, for debugging. <code>Build</code> will generate a static version in a <code>build</code> folder.</p>
+
+<h3>Posts</h3>
+
+<p><code>ford.py</code> looks for content, or rather posts, in the <code>posts</code> directory. Posts should written in <code>Markdown</code> and end in <code>.md</code> extensions.</p>
+
+<p><strong>Any files which do not have an <code>.md</code> extension will not be recognized as posts. This is actually useful - save a file with another extension to save it as a draft.</strong></p>
+
+<p>The layout for a post should look like this:</p>
+
+<pre><code>title: hello world 
+date: 2013-01-27 
+tags: [hello, stuff] 
+author: mark twain 
+category: general
+
+And then the body of the post here.....
+</code></pre>
+
+<p>Every post should have basic meta like <code>title</code>, <code>date</code>, etc. Users (you?) can add on any tags you want to the meta. </p>
+
+<p>So, you could add </p>
+
+<pre><code>sticky: False
+</code></pre>
+
+<p>to posts you want. </p>
+
+<p>Writing a food blog? Add </p>
+
+<pre><code>ingredients: [flour, milk, sugar]
+</code></pre>
+
+<p>to the meta.</p>
+
+<p><strong>All tags are handled by the theme templates - some templates may ignore extra tags, some may ignore the basic tags, and some may require extra tags. <code>ford.py</code> simply provides the meta and body to the templates.</strong></p>
+
+<h3>Themes</h3>
+
+<p><code>ford.py</code> can use different themes - you have to provide them. A default theme, a port of orderedlist's minimal, is provided with the <code>ford.py</code> source.</p>
+
+<p>Additional themes can be created by anybody easily.</p>
+
+<p>All themes <strong>must</strong> be placed in the <code>themes</code> directory. Each theme should have a <code>templates</code> and <code>static</code> directory - even if they are empty. In addition, they must contain certain files (even if they are blank):</p>
+
+<pre><code>* 404.html
+* author.html
+* cat.html
+* index.html
+* page.html
+* tag.html
+</code></pre>
+
+<p>The <code>minimal</code> theme directory looks like this:</p>
+
+<pre><code>$ ls -al themes/minimal/templates
+
+-rw-r--r--   1 mihir  staff   238 Jan 27 18:02 404.html
+-rw-r--r--   1 mihir  staff   225 Jan 28 23:22 _list.html
+-rw-r--r--   1 mihir  staff   203 Jan 28 23:22 author.html
+-rw-r--r--   1 mihir  staff  2224 Jan 29 21:52 base.html
+-rw-r--r--   1 mihir  staff   200 Jan 28 23:23 cat.html
+-rw-r--r--   1 mihir  staff   455 Jan 28 23:23 index.html
+-rw-r--r--   1 mihir  staff  2717 Jan 28 23:27 page.html
+-rw-r--r--   1 mihir  staff   195 Jan 28 21:02 tag.html
+</code></pre>
+
+<p>Themes <strong>must</strong> be templated with <code>Jinja2</code>.</p>
+
+<p>Take a look at the minimal theme for an idea on how themes work.</p>
+
+<h3>config.yaml</h3>
+
+<p>The <code>config.yaml</code> requires one thing only - <code>theme</code>. Everything else included is used by the theme itself and not <code>ford.py</code> and should be defined in the theme's description.</p>
+
+<p>The <code>minimal</code> theme asks for:</p>
+
+<pre><code>* title
+* about //description
+* post_blog //what should come after the web blog on the index
+* footer 
+* gauges_id // for gaug.es analytics
+* disqus_id // for disqus commenting system
+</code></pre>
+
+<p>For a valid <code>config.yaml</code> for the <code>minimal</code> theme, take a look at the one included in this repository.</p>
+
+<h3>Additional Information</h3>
+
+<p>As of now, there are three things which you should be aware of.</p>
+
+<ol>
+<li>
+<p>Upon installation, <strong>Markdown extra</strong> features like <strong>tables</strong> will not render.</p>
+
+<p>The problem lies in that <code>Flask-FlatPages</code> does not pass <code>extras</code> to the <code>Markdown</code> package by default.</p>
+
+<p>The solution is to modify your installation of <code>Flask-FlatPages</code>. You have to change lines 34-40 of <code>__init__.py</code>.</p>
+
+<p>Change:</p>
+
+<pre><code>try:
+    import pygments
+except ImportError:
+    extensions = []
+else:
+    extensions = ['codehilite']
+return markdown.markdown(text, extensions)
+</code></pre>
+
+<p>To:</p>
+
+<pre><code>extensions = ['extra']
+
+try:
+    import pygments
+except ImportError:
+    pass
+else:
+    extensions.append('codehilite')
+
+return markdown.markdown(text, extensions)
+</code></pre>
+
+<p>And save!</p>
+</li>
+<li>
+<p>The URL's in the static version of the blog will be absolute, not relative. </p>
+
+<p>So, if you just double-click <code>index.html</code> in the <code>build</code> directory, the page will show up without CSS, JS, etc.</p>
+
+<p>The static site <strong>must</strong> be served by an HTTP server.</p>
+</li>
+<li>
+<p>When the blog is being <code>served locally</code> for debugging, 404's will automatically load the <code>404.html</code> page. The static site will not. You will have to set the error page in your HTTP server (Nginx, Apache, etc.) configuration.</p>
+
+<p>For exmaple, in my Nginx config, I had to add </p>
+
+<pre><code>error_page 404 /map;
+</code></pre>
+
+<p>to the server.</p>
+</li>
+</ol><h3>Extending</h3>
+
+<p>As mentioned previously, <code>ford.py</code> is written on top of <code>flask</code> and other flask extensions. </p>
+
+<p>Take a look at the source for the <code>ford.py</code> file, and you'll find it familiar. You should be able to extend it as easily as any other <code>flask</code> project.</p>
+
+<h3>Credits</h3>
+
+<p><em>If you contribute, just add your name here and submit a pull request.</em></p>
+
+<p>Authors/Contributors:</p>
+
+<ul>
+<li>Mihir Singh</li>
+</ul><p>Shout out to <a href="https://github.com/remino">@remino</a>. </p>
+
+<h3>Contributing</h3>
+
+<p>Any contribution is welcome. Just submit a pull request. ;)</p>
+
+<h3>License</h3>
+
+<p><code>ford.py</code> is distributed under the MIT License:</p>
+
+<pre><code>Copyright © 2012 Mihir Singh &lt;me@mihirsingh.com&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the “Software”), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of 
+the Software, and to permit persons to whom the Software is furnished to do 
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY 
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
+IN THE SOFTWARE.
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/citruspi">citruspi</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
