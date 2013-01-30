@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Web Log</h2>
+    <ul style="list-style-type:none">
+    {% for post in posts|sort(attribute='date', reverse=True) %}
+        <li>
+            [{{ post.date }}] <a href="{{ url_for("post", path=post.path) }}">{{ post.title }}</a>            
+        </li>
+    {% else %}
+        <li>No stuff.</li>
+    {% endfor %}
+    </ul>
+    
+    {% if post_blog is defined %}
+    {{ config['post_blog']|markdown|safe }}
+    {% endif %}
+    
+{% endblock content %}

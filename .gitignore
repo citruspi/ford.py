@@ -1,0 +1,7 @@
+#ford .gitignore
+
+/build
+.DS_Store
+*.pyc
+*.sublime-project
+*.sublime-workspace
