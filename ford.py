@@ -143,4 +143,5 @@ if __name__ == '__main__':
         """
         app.run(port=8000)
     else:    
-        print "Error Code -3492. Universe will now implode."
+        print "Error Code -3492. Universe will now implode.\n"
+        print "Just kidding. But if you need help, try python ford.py -h"
