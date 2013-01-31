@@ -44,7 +44,7 @@
     <!-- SCALE FIX JAVASCRIPT -->
     <script src="{{ url_for('static', filename='scale.fix.js') }}"></script>  
 
-    {% if config['guages_id'] is defined %}
+    {% if config['gauges_id'] is defined %}
     <!-- ANALYTICS (GAUG.ES) SCRIPT - LOAD ONTO ALL PAGES -->
     <script type="text/javascript">
     var _gauges = _gauges || [];
@@ -53,7 +53,7 @@
       t.type  = 'text/javascript';
       t.async = true;
       t.id    = 'gauges-tracker';
-      t.setAttribute('data-site-id', '{{ config['guages_id'] }}');
+      t.setAttribute('data-site-id', '{{ config['gauges_id'] }}');
       t.src = '//secure.gaug.es/track.js';
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(t, s);
