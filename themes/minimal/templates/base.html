@@ -24,7 +24,6 @@
 
             <!-- HEADER - TITLE, DESCRIPTION, ETC. -->
             <header>
-                <!--<center><img src="{{ url_for('static', filename='mihir_logo.png') }}" width="100" height="100"></img></center>-->
                 <a href="{{ url_for("index") }}"><h1>{{ config['title']|markdown|safe }}</h1></a>
                 {{ config['about']|markdown|safe }}                   
             </header>
