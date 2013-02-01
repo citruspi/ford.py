@@ -3,7 +3,7 @@
 body {
   padding:50px;
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#777;
+  color:#222;
   font-weight:300;
 }
 
@@ -166,13 +166,13 @@ a:hover {
 
 a small {
   font-size:11px;
-  color:#777;
+  color:#222;
   margin-top:-0.6em;
   display:block;
 }
 
 a:hover small {
-  color:#777;
+  color:#222;
 }
 
 .wrapper {
@@ -456,6 +456,6 @@ footer {
   body {
     padding:0.4in;
     font-size:12pt;
-    color:#444;
+    color:#222;
   }
 }
