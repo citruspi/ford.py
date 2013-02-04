@@ -192,7 +192,7 @@ As of now, there are three things which you should be aware of.
 
 3. When the blog is being `served locally` for debugging, 404's will automatically load the `404.html` page. The static site will not. You will have to set the error page in your HTTP server (Nginx, Apache, etc.) configuration.
 
-	For exmaple, in my Nginx config, I had to add 
+	For example, in my Nginx config, I had to add 
 
 		error_page 404 /404;
 
@@ -202,7 +202,7 @@ As of now, there are three things which you should be aware of.
 
 As mentioned previously, `ford.py` is written on top of `flask` and other flask extensions. 
 
-Take a look at the source for the `ford.py` file, and you'll find it familiar. You should be able to extend it as easily as any other `flask` project.
+Take a look at the source for the `ford.py` file, you'll find it familiar. You should be able to extend it as easily as any other `flask` project.
 
 ### Credits
 
