@@ -52,7 +52,7 @@ Here are a few steps to get you on the way:
 
 		$ python ford.py serve
 
-Now, if you open `127.0.0.1:8000` in your browser, you should be greated with something like:
+Now, if you open `127.0.0.1:8000` in your browser, you should be greeted with something like:
 
 ![](http://i.imgur.com/uiMBP8r.png)
 
