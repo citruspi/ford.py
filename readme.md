@@ -1,5 +1,7 @@
 ## ford.py, (Yet Another) Static Blog Generator in Python
 
+__Warning: `ford.py` is changing and fast. Specs are changing rapidly and until `ford.py` hits v1.0, it should be considered unstable.__
+
 ### Introduction
 
 `ford.py` is based on the principle that we shouldn't
