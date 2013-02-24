@@ -1,6 +1,7 @@
 ## v0.3.2
 
 * Enabled custom front page image for Medium theme
+* Changed footer color - Disq.us authors were unreadable
 
 ## v0.3.1
 
