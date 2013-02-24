@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body itemscope itemtype="http://schema.org/CreativeWork" class=" browser-other">
+
+	<div class="container" id="container">
+
+		<div class="butter-bar error">
+			<p class="butter-bar-message"></p>
+		</div>
+
+		<div id="prerendered" class="screen-content">
+			<aside class="cover cover-collection wf">
+				<div class="cover-img" style="/*background-image: url('http://fc06.deviantart.net/fs70/f/2012/332/9/0/library_by_vladstudio-d5mfjau.jpg')*/ background-image: url('http://blog.timesunion.com/marshall/files/2011/01/Huckleberry-Finn.jpg')"></div>
+				<div class="cover-body">
+					<div class="cover-body-inner">
+						<a href="{{ url_for("index") }}"><h1 class="cover-title">{{ config['header']|markdown|safe }}</h1></a>
+						<p class="cover-description">
+							{{ config['about']|safe }}
+						</p>
+						<div class="cover-meta">
+							{{ config['footer']|markdown|safe }}
+						</div>
+					</div>
+				</div>
+			</aside>
+
+			<section class="wrapper">
+				<div class="bucket post-bucket wf">
+					<div class="bucket-header">
+						<nav class="bucket-sort">
+							<h5 class="bucket-title active"><a href="/">Web Log</a></h5>
+							{% for page in pages|sort(attribute='title', reverse=True) %}
+								<h5 class="bucket-title"><a href="{{ url_for("show", path=page.path) }}">{{ page.title }}</a></h5>
+							{% endfor %}
+								
+						</nav>
+					</div>
+
+					{% for post in posts|sort(attribute='date', reverse=True) %}
+
+					<article class="post-item hide-collection  post-status-undefined" >
+
+						<h3 class="post-item-title">
+							<a href="{{ url_for("show", path=post.path) }}">{{ post.title.title() }}</a>
+						</h3>
+
+						<!--<div class="post-item-meta">
+							<a class="post-item-author">{{ post.author }}</a> 
+						</div>-->
+		
+						<div class="post-item-snippet">							
+								{{ post.html.split('</p>')[0]|safe }}... <a style="color:#57ad68;" href="{{ url_for("show", path=post.path) }}">[Read More]</p>
+						</div>
+					</article>	
+
+					{% else %}
+        				No logs.
+    				{% endfor %}
+
+				</div>
+			</section>
+		</div>
+    </div>
+</body>
+{% endblock %}
