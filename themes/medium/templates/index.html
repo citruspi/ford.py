@@ -12,7 +12,7 @@
 
 		<div id="prerendered" class="screen-content">
 			<aside class="cover cover-collection wf">
-				<div class="cover-img" style="/*background-image: url('http://fc06.deviantart.net/fs70/f/2012/332/9/0/library_by_vladstudio-d5mfjau.jpg')*/ background-image: url('http://blog.timesunion.com/marshall/files/2011/01/Huckleberry-Finn.jpg')"></div>
+				<div class="cover-img" style="background-image: url('{{ config['fp_img'] }}')"></div>
 				<div class="cover-body">
 					<div class="cover-body-inner">
 						<a href="{{ url_for("index") }}"><h1 class="cover-title">{{ config['header']|markdown|safe }}</h1></a>
