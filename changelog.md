@@ -1,16 +1,22 @@
+## v0.3.2
+
+* Enabled custom front page image for Medium theme
+
 ## v0.3.1
 
-* Quickstart:
+* Added a `Makefile` for faster building and serving
+
+* Better quickstart:
 
 	* Added to Makefile
-	* Sample content in `sample.content`
+	* Sample content in `sample.content` - automatically handled by `make qs`
 
 ## v0.3.0
 
 ### New Features:
 
+* __New theme - Medium__
 * Added support for hidden pages
-* Added a `Makefile` for faster building and serving
 
 ### Changes:
 
