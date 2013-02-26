@@ -1,11 +1,15 @@
+## v0.3.3
+
+* Introduced `ford.py.yaml`
+
 ## v0.3.2
 
-* Enabled custom front page image for Medium theme
-* Changed footer color - Disq.us authors were unreadable
+* Enabled custom front page image `[Medium]`
+* Changed footer color - Disq.us authors were unreadable `[Medium]`
 
 ## v0.3.1
 
-* Added a `Makefile` for faster building and serving
+* Added a `Makefile` for faster building and serving 
 
 * Better quickstart:
 
@@ -39,18 +43,18 @@
 
 ## v0.1.2
 
-* Enchanced analytics support:
+* Enhanced analytics support `[Minimal]`:
 
 	* Google Analytics
 	* Go Squared
 
 ## v0.1.1
 
-* Added support for comments:
+* Added support for comments `[Minimal]`:
 
 	* Disq.us
 
-* Added support for analytics:
+* Added support for analytics `[Minimal]`:
 	
 	* Gaug.es
 
