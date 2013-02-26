@@ -10,3 +10,7 @@ qs:
 	rm -rf content
 	cp -r sample.content content
 	python ford.py serve content
+	
+rqs:
+	rm -rf content
+	rm -rf sample.content
