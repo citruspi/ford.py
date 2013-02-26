@@ -1,5 +1,5 @@
 #########################################
-# ford.py v0.3.1
+# ford.py v0.3.2
 # Mihir Singh (citruspi)
 # Distributed under the MIT license
 #########################################
@@ -13,6 +13,7 @@ from flask_flatpages import FlatPages #Used to generate posts from markdown
 from flask_frozen import Freezer #Used to generate the static site
 
 config = yaml.load(open('content/config.yaml')) #Load the config
+ford.py = yaml.load(open('ford.py.yaml')) #Load info about ford.py
 
 DEBUG = True # For debugging - won't show up on static site
 FLATPAGES_EXTENSION = '.md' #Posts are designated by a '.md' extension
