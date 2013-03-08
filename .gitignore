@@ -1,6 +1,6 @@
-#ford .gitignore
+#ford.py .gitignore
 
-/build
+build
 .DS_Store
 *.pyc
 *.sublime-project
