@@ -1,3 +1,21 @@
+## v0.3.6 (March 07, 2013)
+
+* Added tests `nosetests tests.py`
+* Added title filter for Jinja2
+
+## v0.3.5 (March 07, 2013)
+
+* Setup.py written
+* `ford.py` re-written as CLI script
+* `argparse` implemented
+* Added to PyPi
+
+## v0.3.4 (March 03, 2013)
+
+* Fixed title capitalization `[Medium]` `[Minimal]`
+* Removed `ford.py.yaml`
+* Handle lack of template files
+
 ## v0.3.3 (February 25, 2013)
 
 * Introduced `ford.py.yaml`
