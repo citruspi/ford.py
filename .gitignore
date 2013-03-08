@@ -1,7 +1,9 @@
 #ford.py .gitignore
 
+dist
 build
 .DS_Store
 *.pyc
 *.sublime-project
 *.sublime-workspace
+MANIFEST
