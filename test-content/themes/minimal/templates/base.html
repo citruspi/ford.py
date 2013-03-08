@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+        <!-- TITLE += POST TITLE -->
+        <title>
+            {% if config['title'] is defined %} {{ config['title'] }} {% endif %} {% if post is defined %} | {{ post.title }} {% endif %}
+        </title>
+    
+        <!-- GENERAL STYLESHEET -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+        <!-- SYNTAX HIGHLIGHTING STYLESHEET -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='codehilite.css') }}">
+
+        <!-- FONT AWESOME (SOCIAL MEDIA ICONS) -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome.min.css') }}">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+  
+    <body>
+        <div class="wrapper">
+
+            <!-- HEADER - TITLE, DESCRIPTION, ETC. -->
+            <header>
+                <a href="{{ url_for("index") }}"><h1>{{ config['header']|markdown|safe }}</h1></a>
+                {{ config['about']|markdown|safe }}                   
+            </header>
+
+            <!-- PAGE BODY -->
+            <section>
+            {% block content %}
+                <p>Default content to be displayed</p>
+            {% endblock content %}
+            </section>
+      
+            <!-- FOOTER -->
+            <footer>
+                {{ config['footer']|markdown|safe }}
+            </footer>            
+    </div>
+    
+    <!-- SCALE FIX JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='scale.fix.js') }}"></script>  
+
+    {% if config['gauges_id'] is defined %}
+    <!-- ANALYTICS (GAUG.ES) -->
+    <script type="text/javascript">
+        var _gauges = _gauges || [];
+        (function() {
+            var t   = document.createElement('script');
+            t.type  = 'text/javascript';
+            t.async = true;
+            t.id    = 'gauges-tracker';
+            t.setAttribute('data-site-id', '{{ config['gauges_id'] }}');
+            t.src = '//secure.gaug.es/track.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(t, s);
+       })();
+    </script>
+    {% endif %}
+
+    {% if config['go_squared_id'] is defined %}
+    <!-- ANALYTICS (GO SQUARED) -->
+    <script type="text/javascript">
+        var GoSquared = {};
+        GoSquared.acct = "{{ config['go_squared_id'] }}";
+        (function(w){
+            function gs(){
+                w._gstc_lt = +new Date;
+                var d = document, g = d.createElement("script");
+                g.type = "text/javascript";
+                g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+                var s = d.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(g, s);
+            }
+            w.addEventListener ?
+                w.addEventListener("load", gs, false) :
+                w.attachEvent("onload", gs);
+        })(window);
+    </script>
+    {% endif %}
+
+    {% if config['google_analytics'] is defined %}
+    <!-- ANALYTICS (GOOGLE ANALYTICS) -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{google_analytics}}']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    {% endif %}
+
+  </body>
+</html>
