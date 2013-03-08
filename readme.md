@@ -12,19 +12,16 @@ So, it makes use of existing code libraries, in this case `flask` and extensions
 
 ### Installation
 
-	python install -r requirements.txt
+	$ python install ford.py
 
-### Quickstart
+or 
 
-Run 
-
-	make qs
-
-Then, open `127.0.0.1:8000` in your browser.
+	$ python setup.py install
+	$ pip install -r requirements.txt
 
 ### Documentation
 
-Coming soon. I promise :)
+Coming soon.
 
 ### Contributing
 
