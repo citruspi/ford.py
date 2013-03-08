@@ -1,8 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <h2>posts authored by <em>{{ author }}</em></h2>
-    {% with posts=posts  %}
-        {% include "_list.html" %}
-    {% endwith %}
-{% endblock content %}
