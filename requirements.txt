@@ -1,7 +1,11 @@
-# ford.py dependencies
-
-Flask>=0.9
-Flask-FlatPages>=0.3
-Frozen-Flask>=0.9
-PyYAML>=3.10
-Pygments>=1.6rc1
+Flask==0.9
+Flask-FlatPages==0.3
+Frozen-Flask==0.9
+Jinja2==2.6
+Markdown==2.2.1
+PyYAML==3.10
+Pygments==1.6
+Werkzeug==0.8.3
+ford.py==0.3.5
+nose==1.2.1
+wsgiref==0.1.2
